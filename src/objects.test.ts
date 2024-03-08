@@ -167,7 +167,7 @@ What shape can you make with one line?
             published: false
         });
     });
-
+    renameQuestion(ADDITION_QUESTION, "Addition");
     ///////////////////////////////////
     // publishQuestion
     test("Testing the publishQuestion function", () => {
