@@ -1,5 +1,5 @@
 import React from "react";
-import "react-boostrap";
+import "react-bootstrap";
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -93,9 +93,8 @@ export function allRGB(colors: string[]): boolean {
  */
 export function makeMath(addends: number[]): string {
     const sum = addends.reduce((acc, cur) => acc + cur, 0);
-    const nums = addends.join("*") || 0;
-    let rep: string = "${sum} = ${nums}";
-    return rep;
+    const nums = addends.join("+") || "0";
+    return `${sum}=${nums}`;
 }
 
 /**
@@ -109,16 +108,22 @@ export function makeMath(addends: number[]): string {
  */
 export function injectPositive(values: number[]): number[] {
     let sum: number = 0;
-    let neg: boolean = false;
-    return values
-        .reduce((result: number[], num: number) => {
-            if (!neg && num < 0) {
-                neg = true;
-                result.push(sum);
-            }
-            sum += num;
-            result.push(num);
-            return result;
-        }, [])
-        .concat(sum);
+    let i: number = -1;
+    let check: number = 0;
+    const injected = values.map((value, index) => {
+        if (value < 0 && check == 0) {
+            i = index;
+            check++;
+        } else if (check == 0) {
+            sum += value;
+        }
+        return value;
+    });
+    if (i != -1) {
+        injected.splice(i + 1, 0, sum);
+    } else {
+        injected.push(sum);
+    }
+    return injected;
+    //map through the array, find the negative, keep it's index, splice the addition to the new array
 }
