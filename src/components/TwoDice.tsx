@@ -15,14 +15,28 @@ export function d6(): number {
 
 export function TwoDice(): JSX.Element {
     const [leftDie, setLeftDie] = useState(d6());
-    const [rightDie, setRightDie] = useState(d6());
+    const [rightDie, setRightDie] = useState(() => {
+        let roll = d6();
+        while (roll === leftDie) {
+            roll = d6();
+        }
+        return roll;
+    });
 
     const rollLeft = () => {
-        setLeftDie(d6());
+        const roll = d6();
+        setLeftDie(roll);
+        if (roll === 1 && rightDie === 1) {
+            alert("You rolled snake eyes! You lose!");
+        }
     };
 
     const rollRight = () => {
-        setRightDie(d6());
+        const roll = d6();
+        setRightDie(roll);
+        if (leftDie === 1 && roll === 1) {
+            alert("You rolled snake eyes! You lose!");
+        }
     };
 
     const lose = leftDie === 1 && rightDie === 1;
@@ -37,8 +51,12 @@ export function TwoDice(): JSX.Element {
             <button onClick={rollRight} disabled={win || lose}>
                 Roll Right
             </button>
-            {lose && <p>You rolled snake eyes! You lose</p>}
-            {win && <p>You rolled a pair! You win!</p>}
+            {leftDie === rightDie && leftDie === 1 && (
+                <p>You rolled snake eyes! You lose!</p>
+            )}
+            {leftDie === rightDie && leftDie !== 1 && (
+                <p>You rolled a pair! You win!</p>
+            )}
         </div>
     );
 }
