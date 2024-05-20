@@ -1,6 +1,5 @@
 import { Question, QuestionType } from "./interfaces/question";
 import "react-bootstrap";
-import React from "react";
 
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
