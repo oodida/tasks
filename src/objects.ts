@@ -78,7 +78,7 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    let updated: string = `# ${question.name}\n${question.body}`;
+    let updated = `# ${question.name}\n${question.body}`;
     if (
         question.type == "multiple_choice_question" &&
         question.options.length > 1

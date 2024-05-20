@@ -6,8 +6,7 @@ import { Button, Container, Row, Col } from "react-bootstrap";
  *      C = (F - 32) * 5/9
  */
 export function fahrenheitToCelius(temperature: number): number {
-    let celcius: number = 0;
-    celcius = (temperature - 32) * (5 / 9);
+    const celcius: number = (temperature - 32) * (5 / 9);
     return celcius;
 }
 
@@ -16,7 +15,7 @@ export function fahrenheitToCelius(temperature: number): number {
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
-    let sum: number = 0;
+    let sum = 0;
     if (first > 0) {
         sum += first;
     }
