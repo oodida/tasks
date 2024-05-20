@@ -1,33 +1,40 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { dhValue, setDhValue } from "./DoubleHalfState";
 
-function Doubler(): JSX.Element {
-    const handleDouble = () => {
-        setDhValue(2 * dhValue);
-    };
-    return <Button onClick={handleDouble}>Double</Button>;
+interface double {
+    dd: () => void;
+}
+interface halve {
+    hv: () => void;
 }
 
-function Halver(): JSX.Element {
-    const handleHalve = () => {
-        setDhValue(0.5 * dhValue);
-    };
-    return <Button onClick={handleHalve}>Halve</Button>;
+function Doubler({ dd }: double): JSX.Element {
+    return <Button onClick={dd}>Double</Button>;
+}
+
+function Halver({ hv }: halve): JSX.Element {
+    return <Button onClick={hv}>Halve</Button>;
 }
 
 export function DoubleHalf(): JSX.Element {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [value, setValue] = useState(dhValue);
+    const [dhValue, setDhValue] = useState<number>(10);
+    function doubleFunctionCall() {
+        setDhValue((val) => val * 2);
+    }
+
+    function halveFunctionCall() {
+        setDhValue((val) => val * 0.5);
+    }
 
     return (
         <div>
             <h3>Double Half</h3>
             <div>
-                The current value is: <span>{value}</span>
+                The current value is: <span>{dhValue}</span>
             </div>
-            <Doubler />
-            <Halver />
+            <Doubler dd={doubleFunctionCall}></Doubler>
+            <Halver hv={halveFunctionCall}></Halver>
         </div>
     );
 }
