@@ -55,16 +55,10 @@ export const removeDollars = (amounts: string[]): number[] => {
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
     return messages
-        .map((message) =>
-            message.endsWith("?")
-                ? "\0"
-                : message.endsWith("!")
-                ? // eslint-disable-next-line indent
-                  message.toUpperCase()
-                : // eslint-disable-next-line indent
-                  message
-        )
-        .filter((message) => message !== "\0");
+        .filter((message: string): boolean => !message.endsWith("?"))
+        .map((message: string) =>
+            message.endsWith("!") ? message.toUpperCase() : message
+        );
 };
 
 /**

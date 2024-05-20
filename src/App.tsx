@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { ChangeType } from "./components/ChangeType";
 import { RevealAnswer } from "./components/RevealAnswer";
@@ -7,8 +6,6 @@ import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
 import { Button, Container, Row, Col } from "react-bootstrap";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useState } from "react";
 import dollar from "./images/dollar_coin.jpg";
 import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
@@ -19,6 +16,7 @@ import { GiveAttempts } from "./form-components/GiveAttempts";
 import { EditMode } from "./form-components/EditMode";
 import { MultipleChoiceQuestions } from "./form-components/MultipleChoiceQuestion";
 import { ChangeColor } from "./form-components/ChangeColor";
+import React from "react";
 
 function App(): JSX.Element {
     return (

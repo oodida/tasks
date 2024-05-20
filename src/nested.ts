@@ -66,7 +66,7 @@ export function getNames(questions: Question[]): string[] {
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    let sum: number = 0;
+    let sum = 0;
     const newArr = questions.map(
         (question: Question): number => (sum += question.points)
     );
@@ -77,7 +77,7 @@ export function sumPoints(questions: Question[]): number {
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    let sum: number = 0;
+    let sum = 0;
     questions.filter((question: Question): number =>
         question.published ? (sum += question.points) : sum
     );
@@ -141,10 +141,10 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    let same: number = 0;
+    let same = 0;
     if (questions.length > 0) {
-        let sample: QuestionType = questions[0].type;
-        let newArr: Question[] = questions.filter(
+        const sample: QuestionType = questions[0].type;
+        const newArr: Question[] = questions.filter(
             (question: Question): number =>
                 question.type === sample ? same : (same += 1)
         );
@@ -260,7 +260,7 @@ export function helper(
     index: number,
     newOption: string
 ): string[] {
-    let newArr = [...options];
+    const newArr = [...options];
     newArr.splice(index, 1, newOption);
     return [...newArr];
 }
