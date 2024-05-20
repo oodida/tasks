@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import "react-bootstrap";
 /**
@@ -42,7 +43,7 @@ export function stringsToIntegers(numbers: string[]): number[] {
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
     return amounts.map((str) => {
-        let num = parseInt(str.replace("$", ""), 10);
+        const num = parseInt(str.replace("$", ""), 10);
         return isNaN(num) ? 0 : num;
     });
 };
@@ -58,8 +59,10 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
             message.endsWith("?")
                 ? "\0"
                 : message.endsWith("!")
-                ? message.toUpperCase()
-                : message
+                ? // eslint-disable-next-line indent
+                  message.toUpperCase()
+                : // eslint-disable-next-line indent
+                  message
         )
         .filter((message) => message !== "\0");
 };
@@ -107,9 +110,9 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    let sum: number = 0;
-    let i: number = -1;
-    let check: number = 0;
+    let sum = 0;
+    let i = -1;
+    let check = 0;
     const injected = values.map((value, index) => {
         if (value < 0 && check == 0) {
             i = index;
