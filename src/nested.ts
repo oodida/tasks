@@ -67,9 +67,7 @@ export function getNames(questions: Question[]): string[] {
  */
 export function sumPoints(questions: Question[]): number {
     let sum = 0;
-    const newArr = questions.map(
-        (question: Question): number => (sum += question.points)
-    );
+    questions.map((question: Question): number => (sum += question.points));
     return sum;
 }
 
@@ -144,9 +142,8 @@ export function sameType(questions: Question[]): boolean {
     let same = 0;
     if (questions.length > 0) {
         const sample: QuestionType = questions[0].type;
-        const newArr: Question[] = questions.filter(
-            (question: Question): number =>
-                question.type === sample ? same : (same += 1)
+        questions.filter((question: Question): number =>
+            question.type === sample ? same : (same += 1)
         );
     }
     if (same > 0) {

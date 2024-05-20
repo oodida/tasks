@@ -1,5 +1,3 @@
-import React from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
 /**
  * Consumes a single temperature in Fahrenheit (a number) and converts to Celsius
  * using this formula:

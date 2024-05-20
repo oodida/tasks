@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import React from "react";
 import "react-bootstrap";
 /**
  * Consume an array of numbers, and return a new array containing
