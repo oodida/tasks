@@ -14,48 +14,22 @@ export function d6(): number {
 }
 
 export function TwoDice(): JSX.Element {
-    const [leftDie, setLeftDie] = useState(d6());
-    const [rightDie, setRightDie] = useState(() => {
-        let roll = d6();
-        while (roll === leftDie) {
-            roll = d6();
-        }
-        return roll;
-    });
+    const [left, setLeft] = useState<number>(1);
+    const [right, setRight] = useState<number>(6);
 
-    const rollLeft = () => {
-        const roll = d6();
-        setLeftDie(roll);
-        if (roll === 1 && rightDie === 1) {
-            alert("You rolled snake eyes! You lose!");
-        }
-    };
-
-    const rollRight = () => {
-        const roll = d6();
-        setRightDie(roll);
-        if (leftDie === 1 && roll === 1) {
-            alert("You rolled snake eyes! You lose!");
-        }
-    };
-
-    const lose = leftDie === 1 && rightDie === 1;
-    const win = leftDie === rightDie && !lose;
     return (
         <div>
-            <span data-testid="left-die">{leftDie}</span>
-            <button onClick={rollLeft} disabled={win || lose}>
-                Roll Left
-            </button>
-            <span data-testid="right-die">{rightDie}</span>
-            <button onClick={rollRight} disabled={win || lose}>
-                Roll Right
-            </button>
-            {leftDie === rightDie && leftDie === 1 && (
-                <p>You rolled snake eyes! You lose!</p>
+            <Button onClick={() => setLeft(d6())}>Roll Left</Button>
+            <div data-testid="left-die">{left}</div>
+
+            <Button onClick={() => setRight(d6())}>Roll Right</Button>
+            <div data-testid="right-die">{right}</div>
+
+            {left === right && left === 1 && right === 1 && (
+                <span>You lose!!!</span>
             )}
-            {leftDie === rightDie && leftDie !== 1 && (
-                <p>You rolled a pair! You win!</p>
+            {left === right && !(left === 1 && right === 1) && (
+                <span>You win!!!</span>
             )}
         </div>
     );

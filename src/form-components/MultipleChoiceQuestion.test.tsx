@@ -1,12 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion";
+import { MultipleChoiceQuestions } from "./MultipleChoiceQuestion";
 import userEvent from "@testing-library/user-event";
 
 describe("MultipleChoiceQuestion Component tests", () => {
     test("There is a select box", () => {
         render(
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestions
                 expectedAnswer="2"
                 options={["1", "2", "3"]}
             />
@@ -15,7 +15,7 @@ describe("MultipleChoiceQuestion Component tests", () => {
     });
     test("The answer is initially incorrect", () => {
         render(
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestions
                 expectedAnswer="2"
                 options={["1", "2", "3"]}
             />
@@ -25,7 +25,7 @@ describe("MultipleChoiceQuestion Component tests", () => {
     });
     test("Can choose the correct answer", () => {
         render(
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestions
                 expectedAnswer="2"
                 options={["1", "2", "3"]}
             />
@@ -37,7 +37,7 @@ describe("MultipleChoiceQuestion Component tests", () => {
     });
     test("Can choose the correct answer and then incorrect", () => {
         render(
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestions
                 expectedAnswer="2"
                 options={["1", "2", "3"]}
             />
@@ -52,7 +52,7 @@ describe("MultipleChoiceQuestion Component tests", () => {
     });
     test("Can start off initially correct", () => {
         render(
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestions
                 expectedAnswer="Alpha"
                 options={["Alpha", "Beta", "Gamma"]}
             />
@@ -64,7 +64,7 @@ describe("MultipleChoiceQuestion Component tests", () => {
     });
     test("One more test of choosing the right answer", () => {
         render(
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestions
                 expectedAnswer="World"
                 options={["Hello", "World"]}
             />

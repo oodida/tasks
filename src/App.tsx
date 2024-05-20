@@ -7,6 +7,7 @@ import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
 import { Button, Container, Row, Col } from "react-bootstrap";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useState } from "react";
 import dollar from "./images/dollar_coin.jpg";
 import { DoubleHalf } from "./bad-components/DoubleHalf";
@@ -16,7 +17,7 @@ import { ChooseTeam } from "./bad-components/ChooseTeam";
 import { CheckAnswer } from "./form-components/CheckAnswer";
 import { GiveAttempts } from "./form-components/GiveAttempts";
 import { EditMode } from "./form-components/EditMode";
-import { MultipleChoiceQuestion } from "./form-components/MultipleChoiceQuestion";
+import { MultipleChoiceQuestions } from "./form-components/MultipleChoiceQuestion";
 import { ChangeColor } from "./form-components/ChangeColor";
 
 function App(): JSX.Element {
@@ -68,27 +69,39 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
-
-            <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
-            <hr></hr>
-            <ChooseTeam></ChooseTeam>
-            <hr></hr>
-            <ColoredBox></ColoredBox>
-            <hr></hr>
-            <ShoveBox></ShoveBox>
-            <hr></hr>
-            <Counter></Counter>
             <hr />
-            <RevealAnswer></RevealAnswer>
+            <CheckAnswer expectedAnswer="42" />
             <hr />
-            <StartAttempt></StartAttempt>
+            <GiveAttempts />
             <hr />
-            <TwoDice></TwoDice>
+            <EditMode />
             <hr />
-            <ChangeType></ChangeType>
+            <ChangeColor />
             <hr />
-            <CycleHoliday></CycleHoliday>
+            <MultipleChoiceQuestions
+                options={["a", "b", "c"]}
+                expectedAnswer="b"
+            ></MultipleChoiceQuestions>
+            <hr />
+            <DoubleHalf />
+            <hr />
+            <ChooseTeam />
+            <hr />
+            <ColoredBox />
+            <hr />
+            <ShoveBox />
+            <hr />
+            <Counter />
+            <hr />
+            <RevealAnswer />
+            <hr />
+            <StartAttempt />
+            <hr />
+            <TwoDice />
+            <hr />
+            <ChangeType />
+            <hr />
+            <CycleHoliday />
         </div>
     );
 }
