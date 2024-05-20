@@ -1,6 +1,14 @@
 import React from "react";
 import "./App.css";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
 import { Button, Container, Row, Col } from "react-bootstrap";
+import { useState } from "react";
+import dollar from "./images/dollar_coin.jpg";
 
 function App(): JSX.Element {
     return (
@@ -11,7 +19,7 @@ function App(): JSX.Element {
             </header>
             <h2>This is a new secondary header</h2>
             <img
-                src="/src/dollar_coin.jpg"
+                src={dollar}
                 alt="A picture of a two dollar coin"
                 width="500"
                 height="500"
@@ -51,6 +59,18 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <StartAttempt></StartAttempt>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+            <hr />
+            <CycleHoliday></CycleHoliday>
         </div>
     );
 }
