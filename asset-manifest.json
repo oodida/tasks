@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/tasks/static/css/main.2163ecd3.css",
-    "main.js": "/tasks/static/js/main.b444ea18.js",
+    "main.css": "/tasks/static/css/main.dad90c9a.css",
+    "main.js": "/tasks/static/js/main.bb104d22.js",
     "static/js/787.4ef7427d.chunk.js": "/tasks/static/js/787.4ef7427d.chunk.js",
+    "static/media/dollar_coin.jpg": "/tasks/static/media/dollar_coin.d4ef3b101e02152cc04e.jpg",
     "index.html": "/tasks/index.html",
-    "main.2163ecd3.css.map": "/tasks/static/css/main.2163ecd3.css.map",
-    "main.b444ea18.js.map": "/tasks/static/js/main.b444ea18.js.map",
+    "main.dad90c9a.css.map": "/tasks/static/css/main.dad90c9a.css.map",
+    "main.bb104d22.js.map": "/tasks/static/js/main.bb104d22.js.map",
     "787.4ef7427d.chunk.js.map": "/tasks/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2163ecd3.css",
-    "static/js/main.b444ea18.js"
+    "static/css/main.dad90c9a.css",
+    "static/js/main.bb104d22.js"
   ]
 }
